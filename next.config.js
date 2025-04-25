@@ -8,6 +8,10 @@
 
 module.exports = {
   basePath: '/admin',
+<<<<<<< HEAD
+=======
+
+>>>>>>> 43aa7b6c699b89b5f7d119ffb75cac886441b168
   
   devIndicators: {},
   publicRuntimeConfig: {
