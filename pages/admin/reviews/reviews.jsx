@@ -165,17 +165,19 @@ export const getStaticProps = async () => {
   try {
     const ProductReviews = await api.getAllReviews();
 
+    
     return {
       props: {
         ProductReviews: ProductReviews || [],
       },
+
     };
   } catch (error) {
     console.error('Failed to fetch product reviews:', error.message);
 
 
 
-    
+
     return {
       props: {
         ProductReviews: [],
