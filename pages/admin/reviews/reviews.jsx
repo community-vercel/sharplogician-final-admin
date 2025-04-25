@@ -60,8 +60,8 @@ export default function Reviews(props) {
   const {ProductReviews } = props;
   const { Reviews, items } = ProductReviews;
 
-  const Review = Reviews.map((review) => {
-    const matchingItem = items.find((item) => item.id === review.itemid_id);
+  const Review = Reviews?.map((review) => {
+    const matchingItem = items.find((item) => item?.id === review?.itemid_id);
 
     return {
       ...review,
@@ -71,7 +71,7 @@ export default function Reviews(props) {
 
   const imgurl=process.env.NEXT_PUBLIC_BACKEND_IMAGE_URL
 
-const Previews=ProductReviews.Reviews
+const Previews=ProductReviews?.Reviews
 
   const {
     order,
@@ -101,8 +101,8 @@ const Previews=ProductReviews.Reviews
                 hideSelectBtn
                 orderBy={orderBy}
                 heading={tableHeading}
-                rowCount={Previews.length}
-                numSelected={selected.length}
+                rowCount={Previews?.length}
+                numSelected={selected?.length}
                 onRequestSort={handleRequestSort}
               />
 
