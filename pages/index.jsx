@@ -20,14 +20,14 @@ export default function VendorDashboard(props) {
     <Box py={4}>
       <Grid container spacing={3}>
         <Grid item md={6} xs={12}>
-          <WishCard data={statistics.current_month_sale} />
+          <WishCard data={statistics?.current_month_sale} />
         </Grid>
 
         <Grid container item md={6} xs={12} spacing={3}>
          
             <Grid item md={6} sm={6} xs={12} >
               <Card1
-              data={statistics}
+              data={statistics ?statistics:{}}
               
               />
               
@@ -37,11 +37,11 @@ export default function VendorDashboard(props) {
 
         <Grid item xs={12}>
           <Section3
-          weeklysaleitem={statistics.weekly_saleitem}
-          weeklysale={statistics.total_weekly_sale}
-          monthlysaleitem={statistics.monthy_saleitem}
-          monthlysale={statistics.monthly_sales}
-          weeklyorder={statistics.weekly_saleorder}
+          weeklysaleitem={statistics?.weekly_saleitem}
+          weeklysale={statistics?.total_weekly_sale}
+          monthlysaleitem={statistics?.monthy_saleitem}
+          monthlysale={statistics?.monthly_sales}
+          weeklyorder={statistics?.weekly_saleorder}
           
           />
         </Grid>
@@ -51,25 +51,37 @@ export default function VendorDashboard(props) {
         </Grid> */}
 
         <Grid item md={7} xs={12}>
-          <RecentPurchase data={statistics.mostsold_item} />
+          <RecentPurchase data={statistics?.mostsold_item} />
         </Grid>
 
         <Grid item md={5} xs={12}>
-          <StockOutProducts data={statistics.stock_items} />
+          <StockOutProducts data={statistics?.stock_items} />
         </Grid>
       </Grid>
     </Box>
   );
 }
 export const getStaticProps = async () => {
-  const statistics = await api.getAllStatistics();
- 
-  return {
-    props: {
-      statistics
-    },
-  };
-};
+  try {
+    const statistics = await api.getAllStatistics();
+    return {
+      props: {
+        statistics,
+      },
+    };
+  } catch (error) {
+    console.error("Failed to fetch dashboard statistics:", error.message);
 
+    // You can either return fallback props, or redirect, or set a notFound flag
+    return {
+      props: {
+        statistics: {}, // or some default mock object
+        error: 'Failed to fetch statistics'
+      },
+      // Optionally: revalidate every 60 seconds if using ISR
+      // revalidate: 60,
+    };
+  }
+};
 VendorDashboard.auth = true
 
