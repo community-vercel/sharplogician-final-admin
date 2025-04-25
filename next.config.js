@@ -16,6 +16,6 @@ module.exports = {
     theme: "DEFAULT",
   },
   images: {
-    domains: ["100.64.6.105"],
+    domains: ["https://chitralhive.com/api/"],
   },
 };
