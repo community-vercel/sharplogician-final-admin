@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_OPTIONS='--inspect' next dev -p 3005",
+    "dev": "cross-env NODE_OPTIONS='--inspect' next dev -p 4005",
     "build": "next build",
     "export": "next build && next export",
     "build:local": "cross-env NODE_OPTIONS=--max-old-space-size=4096 next build",
-    "start": "next start -p 3005",
+    "start": "next start -p 4005",
     "size": "node --max_old_space_size=4096",
     "fix:prettier": "prettier --write .",
     "lint": "next lint"
