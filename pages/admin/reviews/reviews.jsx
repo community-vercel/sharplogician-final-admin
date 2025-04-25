@@ -107,32 +107,32 @@ const Previews=ProductReviews.Reviews
               />
 
               <TableBody>
-                {Review.map((review, index) => (
+                {Review?.map((review, index) => (
                   
                   <StyledTableRow tabIndex={-1} role="checkbox" key={index}>
                     <StyledTableCell align="left">
                       <FlexBox alignItems="center" gap={1.5}>
                         <Avatar
-                          src={imgurl+review.image}
+                          src={imgurl+review?.image || ''}
                           sx={{
                             borderRadius: "8px",
                           }}
                         />
-                        <Paragraph>{review.itemname}</Paragraph>
+                        <Paragraph>{review?.itemname || ''}</Paragraph>
                       </FlexBox>
                     </StyledTableCell>
 
                     <StyledTableCell align="left">
-                      {review.username}
+                      {review?.username || ''}
                     </StyledTableCell>
 
                     <StyledTableCell align="left">
-                      <Small>{review.review}</Small>
+                      <Small>{review?.review || ''}</Small>
                     </StyledTableCell>
 
                     <StyledTableCell align="left">
                       <Rating
-                        value={review.rating}
+                        value={review?.rating || ''}
                         size="small"
                         color="warning"
                         readOnly
