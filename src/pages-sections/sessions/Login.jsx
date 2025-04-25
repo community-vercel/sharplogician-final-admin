@@ -63,7 +63,7 @@ const Login = () => {
       username: values.email,
       password: values.password,
       role:2,
-      callbackUrl: `${window.location.origin}/admin`,
+      callbackUrl: `${window.location.origin}/  `,
       redirect: false,
 
     }).then(function(result){
@@ -86,7 +86,7 @@ const Login = () => {
             {
               toast.success("Login Successfully", {position: toast.POSITION.TOP_RIGHT});
 
-              router.push(result.url || "/admin");
+                router.push(result.url);
             }});
   };
   const router = useRouter();
@@ -97,7 +97,7 @@ const Login = () => {
       validationSchema: formSchema,
     });
     if(session){
-      router.push('/admin')
+      router.push('/')
     }
     const fetcher = async (url) => await axios.get(url).then((res) => res.data);
   const server_ip = process.env.NEXT_PUBLIC_BACKEND_API_BASE;

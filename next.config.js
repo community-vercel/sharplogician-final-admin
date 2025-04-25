@@ -7,7 +7,7 @@
 // module.exports = nextConfig
 
 module.exports = {
-  basePath: '/admin',
+  // basePath: '/admin',
 
   
   devIndicators: {},
