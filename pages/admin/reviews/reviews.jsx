@@ -173,6 +173,9 @@ export const getStaticProps = async () => {
   } catch (error) {
     console.error('Failed to fetch product reviews:', error.message);
 
+
+
+    
     return {
       props: {
         ProductReviews: [],
