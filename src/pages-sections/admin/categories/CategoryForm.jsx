@@ -11,7 +11,7 @@ const CategoryForm = (props) => {
   if(disableButtonCheck==true){disableButton=true}
   const status = status => (status == 1 ? 'ACTIVE' : status == 2? 'INACTIVE':'DELETED');
   const myLoader = ({ src, width, quality }) => {
-    return server_ip+`/media/${src}?w=${width}&q=${quality || 75}`
+    return server_ip+`media/${src}?w=${width}&q=${quality || 75}`
   }
   return (
     <Card
